@@ -10,11 +10,11 @@ public class NumberC implements ExprC {
         this.n = n;
     }
 
-    public Integer intepret(FunDefs funDefs) {
-        return n;
-    }
-
     public ExprC substitute(Symbol s, ExprC target) {
         return this;
+    }
+
+    public <T> T accept(Vistor<T> visitor) {
+        return visitor.visitNumberC(this);
     }
 }

@@ -6,6 +6,7 @@ package es.qiu.fun;
 public class Interpreter {
 
     public static Integer interpret(ExprC expr, FunDefs funDefs) {
-        return expr.intepret(funDefs);
+        InterpretVisitor interpretVisitor = new InterpretVisitor(funDefs);
+        return expr.accept(interpretVisitor);
     }
 }

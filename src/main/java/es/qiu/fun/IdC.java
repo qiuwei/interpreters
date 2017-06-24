@@ -21,4 +21,9 @@ public class IdC implements ExprC{
             return this;
         }
     }
+
+    public <T> T accept(Vistor<T> visitor) {
+        return visitor.visitIdC(this);
+    }
+
 }

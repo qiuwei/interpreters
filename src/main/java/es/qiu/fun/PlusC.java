@@ -12,11 +12,11 @@ public class PlusC implements ExprC{
         this. r = r;
     }
 
-    public Integer intepret(FunDefs funDefs) {
-        return l.intepret(funDefs) + r.intepret(funDefs);
-    }
-
     public ExprC substitute(Symbol s, ExprC target) {
         return new PlusC(l.substitute(s, target), r.substitute(s, target));
+    }
+
+    public <T> T accept(Vistor<T> visitor) {
+        return visitor.visitPlusC(this);
     }
 }

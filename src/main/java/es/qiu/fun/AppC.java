@@ -12,14 +12,12 @@ public class AppC implements ExprC {
         this.arg = arg;
     }
 
-    public Integer intepret(FunDefs funDefs) {
-        FuncDefC fun = funDefs.get(funcName);
-        // whether evaluate arg is a crucial design decision
-        return fun.getBody().substitute(fun.getArgName(), arg).intepret(funDefs);
-    }
-
     // how to handle name collision?
     public ExprC substitute(Symbol s, ExprC target) {
         return new AppC(funcName, arg.substitute(s, target));
+    }
+
+    public <T> T accept(Vistor<T> visitor) {
+       return visitor.visitAppC(this);
     }
 }
