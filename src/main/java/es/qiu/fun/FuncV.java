@@ -48,7 +48,7 @@ public class FuncV implements Value{
     }
 
     public Value app(Value v) {
-        Env envExtended = new EmptyEnv().extend(this.arg, v);
+        Env envExtended = env.extend(this.arg, v);
         return this.body.accept(new InterpretVisitor(envExtended));
     }
 }

@@ -30,13 +30,24 @@ public class InterpreterTest {
     }
 
     @org.junit.Test(expected = NoSuchElementException.class)
+    //in the book this throws an exception, but not here, it's because that fun2 is defined in an environment where x is bound
     public void testStaticScope () {
         Symbol x = new Symbol("x");
         Symbol y = new Symbol("y");
-        Symbol f2 = new Symbol("f2");
         FunC fun2 = new FunC(y, new PlusC(new IdC(x), new IdC(y)));
         FunC fun1 = new FunC(x, new AppC(fun2, new NumberC(4)));
         Value result = Interpreter.interpret(new AppC(fun1, new NumberC(3)), new EmptyEnv());
         System.out.println(result);
+    }
+
+    @org.junit.Test
+    public void testClosure () {
+        Symbol x = new Symbol("x");
+        Symbol y = new Symbol("y");
+        FunC fun2 = new FunC(y, new PlusC(new IdC(x), new IdC(y)));
+        FunC fun1 = new FunC(x, fun2);
+        Value result = Interpreter.interpret(new AppC(new AppC(fun1, new NumberC(3)), new NumberC(4)), new EmptyEnv());
+        System.out.println(result);
+
     }
 }
