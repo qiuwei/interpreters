@@ -10,10 +10,6 @@ public class IdC implements ExprC{
         this.id = id;
     }
 
-    public Integer intepret(FunDefs funDefs) {
-        throw new UnsupportedOperationException("Error: An id shouldn't be interpreted");
-    }
-
     public <T> T accept(Vistor<T> visitor) {
         return visitor.visitIdC(this);
     }

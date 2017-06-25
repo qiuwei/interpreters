@@ -10,5 +10,5 @@ public interface Vistor<T> {
     public T visitMultC(MultC multC);
     public T visitNumberC(NumberC numberC);
     public T visitPlusC(PlusC plusC);
-
+    public T visitFunC(FunC funC);
 }

@@ -26,4 +26,10 @@ public class Symbol {
         this.s = s;
     }
 
+    @Override
+    public String toString() {
+        return "Symbol{" +
+                "s='" + s + '\'' +
+                '}';
+    }
 }

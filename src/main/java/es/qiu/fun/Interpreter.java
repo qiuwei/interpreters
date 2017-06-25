@@ -5,8 +5,8 @@ package es.qiu.fun;
  */
 public class Interpreter {
 
-    public static Integer interpret(ExprC expr, FunDefs funDefs) {
-        InterpretVisitor interpretVisitor = new InterpretVisitor(funDefs);
+    public static Value interpret(ExprC expr, EmptyEnv emptyEnv) {
+        InterpretVisitor interpretVisitor = new InterpretVisitor(emptyEnv);
         return expr.accept(interpretVisitor);
     }
 }
