@@ -12,10 +12,6 @@ public class PlusC implements ExprC{
         this. r = r;
     }
 
-    public ExprC substitute(Symbol s, ExprC target) {
-        return new PlusC(l.substitute(s, target), r.substitute(s, target));
-    }
-
     public <T> T accept(Vistor<T> visitor) {
         return visitor.visitPlusC(this);
     }

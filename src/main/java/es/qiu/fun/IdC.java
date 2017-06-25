@@ -14,14 +14,6 @@ public class IdC implements ExprC{
         throw new UnsupportedOperationException("Error: An id shouldn't be interpreted");
     }
 
-    public ExprC substitute(Symbol s, ExprC target) {
-        if (id.equals(s)) {
-            return target;
-        } else {
-            return this;
-        }
-    }
-
     public <T> T accept(Vistor<T> visitor) {
         return visitor.visitIdC(this);
     }
